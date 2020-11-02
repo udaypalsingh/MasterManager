@@ -761,7 +761,13 @@ class Dashboard extends Component {
     } else if (this.state.joinTeamMenu === true) {
       console.log("Join team Condition");
       console.log(this.state.teamsByCompany);
-      return this.state.teamsByCompany.map(this.renderJoinTeam);
+      if(this.state.teamsByCompany !== undefined){
+        return this.state.teamsByCompany.map(this.renderJoinTeam);
+      }
+      else{
+        return(<div></div>)
+      }
+      
     } else {
       console.log("in render Condition");
       return this.state.allTeamTasks.map(this.renderTasks);
